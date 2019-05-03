@@ -1,0 +1,9 @@
+mat-list-item {
+    & .mat-icon-button, .empty-icon {
+        width: 2.5rem;
+        display: inline;
+        & mat-icon {
+            font-size: 1.5rem;
+        }
+    }
+}

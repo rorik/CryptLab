@@ -1,0 +1,25 @@
+<mat-nav-list>
+  <ng-container *ngFor="let element of navElements">
+    <ng-container [ngSwitch]="element.type">
+      <mat-list-item *ngSwitchCase="elementTypes.TEXT" [routerLink]="element.path">
+
+        <ng-container *ngIf="element.icon; else noIconTemplate">
+          <button mat-icon-button *ngIf="element.icon">
+            <mat-icon [inline]="true">{{ element.icon }}</mat-icon>
+          </button>
+        </ng-container>
+        <ng-template #noIconTemplate>
+          <div class="empty-icon"></div>
+        </ng-template>
+
+        <ng-container>
+          <a matLine>
+            <span>{{ element.label }}</span>
+          </a>
+        </ng-container>
+        
+      </mat-list-item>
+      <mat-divider *ngSwitchCase="elementTypes.DIVIDER"></mat-divider>
+    </ng-container>
+  </ng-container>
+</mat-nav-list>
