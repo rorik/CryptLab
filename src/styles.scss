@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Material Overrides */
+
+mat-slider.top-override > div.mat-slider-wrapper {
+    top: 35px;
+}
+
+mat-card.top-margin-override {
+    margin-top: 1rem;
+}

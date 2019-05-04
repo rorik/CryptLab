@@ -10,7 +10,8 @@ import { MatButtonModule,
   MatSidenavModule,
   MatListModule,
   MatToolbarModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatSliderModule
 } from '@angular/material';
 
 import { ToolbarComponent } from './common/toolbar/toolbar.component';
@@ -32,7 +33,8 @@ import { SidenavComponent } from './common/sidenav/sidenav.component';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSliderModule
   ],
   exports: [
     /* Material */
@@ -41,7 +43,8 @@ import { SidenavComponent } from './common/sidenav/sidenav.component';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

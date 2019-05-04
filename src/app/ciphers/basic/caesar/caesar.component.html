@@ -1,3 +1,29 @@
-<p>
-  caesar works!
-</p>
+<mat-card class="top-margin-override">
+  <mat-card-content>
+    <div class="basic-row">
+      <div class="left-column">
+        <span>Alphabet:</span>
+      </div>
+      <div class="right-column">
+        <app-alphabet></app-alphabet>
+      </div>
+    </div>
+    <div class="basic-row">
+      <div class="left-column">
+        <span>Substitution alphabet:</span>
+      </div>
+      <div class="right-column">
+        <app-alphabet [shift]="this.options.get('shift').value"></app-alphabet>
+      </div>
+    </div>
+    <form class="basic-row" [formGroup]="options">
+      <mat-form-field class="left-column">
+        <mat-label>Shift</mat-label>
+        <input matInput type="number" formControlName="shift" />
+      </mat-form-field>
+      <mat-slider class="right-column top-override" #shiftSlider [min]="-alphabet.length" [max]="alphabet.length" step="1" [value]="sliderShift" (input)="sliderShift=$event.value"></mat-slider>
+    </form>
+  </mat-card-content>
+</mat-card>
+<app-cipher-operator [encrypt]="encryptCallback" [isEncrypt]="true" [keyChangeListener]="shiftChange"></app-cipher-operator>
+<app-cipher-operator [decrypt]="decryptCallback" [isEncrypt]="false" [keyChangeListener]="shiftChange"></app-cipher-operator>

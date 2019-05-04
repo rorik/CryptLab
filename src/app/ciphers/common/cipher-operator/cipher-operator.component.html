@@ -1,0 +1,27 @@
+<mat-card class="top-margin-override">
+    <form [formGroup]="formGroup">
+        <mat-card-header>
+            <ng-container *ngIf="isEncrypt; else isDecryptTemplate">
+                <mat-card-title>Plaintext → Cipher</mat-card-title>
+            </ng-container>
+            <ng-template #isDecryptTemplate>
+                <mat-card-title>Cipher → Plaintext</mat-card-title>
+            </ng-template>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>{{ isEncrypt ? "Plaintext": "Cipher" }}</mat-label>
+                <textarea matInput formControlName="input" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{ isEncrypt ? "Cipher" : "Plaintext" }}</mat-label>
+                <textarea matInput readonly formControlName="output" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="primary" (click)="process()" [disabled]="auto.checked">{{ isEncrypt ? "Encrypt": "Decrypt" }}</button>
+            <mat-slide-toggle formControlName="ignoreWhitespace">Ignore Whitespace</mat-slide-toggle>
+            <mat-slide-toggle #auto formControlName="auto" (toggleChange)="process()">{{ isEncrypt ? "Auto-Encrypt": "Auto-Decrypt" }}</mat-slide-toggle>
+        </mat-card-actions>
+    </form>
+</mat-card>
