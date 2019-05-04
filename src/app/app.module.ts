@@ -5,7 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule, MatNativeDateModule, MatIconModule, MatSidenavModule, MatListModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatListModule,
+  MatToolbarModule,
+  MatExpansionModule
+} from '@angular/material';
+
 import { ToolbarComponent } from './common/toolbar/toolbar.component';
 import { SidenavComponent } from './common/sidenav/sidenav.component';
 
@@ -21,20 +28,20 @@ import { SidenavComponent } from './common/sidenav/sidenav.component';
     BrowserAnimationsModule,
     /* Material */
     MatButtonModule,
-    MatNativeDateModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
   ],
   exports: [
     /* Material */
     MatButtonModule,
-    MatNativeDateModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

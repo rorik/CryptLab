@@ -1,25 +1,50 @@
 <mat-nav-list>
-  <ng-container *ngFor="let element of navElements">
-    <ng-container [ngSwitch]="element.type">
-      <mat-list-item *ngSwitchCase="elementTypes.TEXT" [routerLink]="element.path">
 
-        <ng-container *ngIf="element.icon; else noIconTemplate">
-          <button mat-icon-button *ngIf="element.icon">
-            <mat-icon [inline]="true">{{ element.icon }}</mat-icon>
-          </button>
-        </ng-container>
-        <ng-template #noIconTemplate>
-          <div class="empty-icon"></div>
-        </ng-template>
+  <mat-list-item routerLink="/">
+    <button mat-icon-button>
+      <mat-icon [inline]="true">home</mat-icon>
+    </button>
+    <span>Home</span>
+  </mat-list-item>
 
-        <ng-container>
-          <a matLine>
-            <span>{{ element.label }}</span>
-          </a>
-        </ng-container>
-        
-      </mat-list-item>
-      <mat-divider *ngSwitchCase="elementTypes.DIVIDER"></mat-divider>
-    </ng-container>
-  </ng-container>
+  <mat-list-item routerLink="/docs/about">
+    <button mat-icon-button>
+      <mat-icon [inline]="true">info</mat-icon>
+    </button>
+    <span>About</span>
+  </mat-list-item>
+
+  <mat-expansion-panel [expanded]="">
+    <mat-expansion-panel-header>
+      Shift ciphers
+    </mat-expansion-panel-header>
+
+    <mat-list-item routerLink="/ciphers/basic/caesar">
+      <button mat-icon-button>
+        <mat-icon [inline]="true">swap_horiz</mat-icon>
+      </button>
+      <span>Caesar</span>
+    </mat-list-item>
+
+    <mat-list-item routerLink="/ciphers/basic/decimation">
+      <button mat-icon-button>
+        <mat-icon [inline]="true">swap_horiz</mat-icon>
+      </button>
+      <span>Decimation</span>
+    </mat-list-item>
+
+    <mat-list-item routerLink="/ciphers/basic/affine">
+      <button mat-icon-button>
+        <mat-icon [inline]="true">swap_horiz</mat-icon>
+      </button>
+      <span>Affine</span>
+    </mat-list-item>
+
+    <mat-list-item routerLink="/ciphers/basic/vigenere">
+      <button mat-icon-button>
+        <mat-icon [inline]="true">swap_horiz</mat-icon>
+      </button>
+      <span>Vigenère</span>
+    </mat-list-item>
+  </mat-expansion-panel>
 </mat-nav-list>
