@@ -3,9 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'basic',
-    loadChildren: './basic/basic.module#BasicModule'
-  }
+    path: 'substitution',
+    loadChildren: './substitution/substitution.module#SubstitutionModule'
+  },
+  {
+    path: 'polyalphabetic',
+    loadChildren: './polyalphabetic/polyalphabetic.module#PolyalphabeticModule'
+  },
 ];
 
 @NgModule({

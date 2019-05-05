@@ -12,3 +12,7 @@ mat-slider.top-override > div.mat-slider-wrapper {
 mat-card.top-margin-override {
     margin-top: 1rem;
 }
+
+mat-expansion-panel-header.indicator-margin-override > span.mat-expansion-indicator {
+    margin-left: 1rem;
+}

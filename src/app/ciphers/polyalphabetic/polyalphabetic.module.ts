@@ -2,19 +2,16 @@ import { CiphersCommonModule } from './../common/ciphers-common.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BasicRoutingModule } from './basic-routing.module';
-import { CaesarComponent } from './caesar/caesar.component';
-import { DecimationComponent } from './decimation/decimation.component';
-import { AffineComponent } from './affine/affine.component';
+import { PolyalphabeticRoutingModule } from './polyalphabetic-routing.module';
 import { VigenereComponent } from './vigenere/vigenere.component';
 import { MatSliderModule, MatIconModule, MatTooltipModule } from '@angular/material';
 import { TextFieldModule } from '@angular/cdk/text-field';
 
 @NgModule({
-  declarations: [CaesarComponent, DecimationComponent, AffineComponent, VigenereComponent],
+  declarations: [VigenereComponent],
   imports: [
     CommonModule,
-    BasicRoutingModule,
+    PolyalphabeticRoutingModule,
     MatSliderModule,
     MatIconModule,
     MatTooltipModule,
@@ -22,4 +19,4 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     TextFieldModule
   ]
 })
-export class BasicModule {}
+export class PolyalphabeticModule {}

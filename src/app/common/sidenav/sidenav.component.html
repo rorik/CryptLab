@@ -14,37 +14,45 @@
     <span>About</span>
   </mat-list-item>
 
-  <mat-expansion-panel [expanded]="">
-    <mat-expansion-panel-header>
-      Shift ciphers
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="indicator-margin-override">
+      Substitution ciphers
     </mat-expansion-panel-header>
 
-    <mat-list-item routerLink="/ciphers/basic/caesar">
+    <mat-list-item routerLink="/ciphers/substitution/caesar">
       <button mat-icon-button>
         <mat-icon [inline]="true">swap_horiz</mat-icon>
       </button>
       <span>Caesar</span>
     </mat-list-item>
 
-    <mat-list-item routerLink="/ciphers/basic/decimation">
+    <mat-list-item routerLink="/ciphers/substitution/decimation">
       <button mat-icon-button>
         <mat-icon [inline]="true">swap_horiz</mat-icon>
       </button>
       <span>Decimation</span>
     </mat-list-item>
 
-    <mat-list-item routerLink="/ciphers/basic/affine">
+    <mat-list-item routerLink="/ciphers/substitution/affine">
       <button mat-icon-button>
         <mat-icon [inline]="true">swap_horiz</mat-icon>
       </button>
       <span>Affine</span>
     </mat-list-item>
 
-    <mat-list-item routerLink="/ciphers/basic/vigenere">
+  </mat-expansion-panel>
+  
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="indicator-margin-override">
+      Polyalphabetic ciphers
+    </mat-expansion-panel-header>
+
+    <mat-list-item routerLink="/ciphers/polyalphabetic/vigenere">
       <button mat-icon-button>
-        <mat-icon [inline]="true">swap_horiz</mat-icon>
+        <mat-icon [inline]="true">text_rotation_none</mat-icon>
       </button>
       <span>Vigenère</span>
     </mat-list-item>
+
   </mat-expansion-panel>
 </mat-nav-list>
