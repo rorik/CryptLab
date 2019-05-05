@@ -1,3 +1,9 @@
 <mat-grid-list [cols]="alphabet.length" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let char of alphabet.alphabet; let i=index">{{ alphabet.alphabet[(((i+shift)%alphabet.length)+alphabet.length)%alphabet.length] }}</mat-grid-tile>
+  <ng-container *ngIf="shiftFunction; else plainTemplate">
+      <mat-grid-tile *ngFor="let char of alphabet.alphabet; let i=index">{{ alphabet.alphabet[((shiftFunction(i) % this.alphabet.length) + this.alphabet.length) % this.alphabet.length] }}</mat-grid-tile>
+  </ng-container>
+  <ng-template #plainTemplate>
+      <mat-grid-tile *ngFor="let char of alphabet.alphabet">{{ char }}</mat-grid-tile>
+  </ng-template>
+  
 </mat-grid-list>

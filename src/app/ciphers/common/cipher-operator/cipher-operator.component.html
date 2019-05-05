@@ -20,6 +20,7 @@
         </mat-card-content>
         <mat-card-actions>
             <button mat-flat-button color="primary" (click)="process()" [disabled]="auto.checked">{{ isEncrypt ? "Encrypt": "Decrypt" }}</button>
+            <mat-slide-toggle formControlName="ignoreCase">Ignore Case</mat-slide-toggle>
             <mat-slide-toggle formControlName="ignoreWhitespace">Ignore Whitespace</mat-slide-toggle>
             <mat-slide-toggle #auto formControlName="auto" (toggleChange)="process()">{{ isEncrypt ? "Auto-Encrypt": "Auto-Decrypt" }}</mat-slide-toggle>
         </mat-card-actions>

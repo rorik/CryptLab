@@ -13,8 +13,8 @@ export class CipherOperatorComponent {
   private keyChangeListenerSubscription: Subscription;
 
   @Input() isEncrypt: false;
-  @Input() encrypt: (plaintext: string, options: { ignoreWhitespace: boolean }) => string;
-  @Input() decrypt: (plaintext: string, options: { ignoreWhitespace: boolean }) => string;
+  @Input() encrypt: (plaintext: string, options: { ignoreWhitespace: boolean,  ignoreCase: boolean }) => string;
+  @Input() decrypt: (plaintext: string, options: { ignoreWhitespace: boolean,  ignoreCase: boolean }) => string;
   @Input() set keyChangeListener(keyChangeListener: EventEmitter<any>) {
     if (this.keyChangeListenerSubscription) {
       this.keyChangeListenerSubscription.unsubscribe();
@@ -25,9 +25,10 @@ export class CipherOperatorComponent {
   }
 
   constructor(formBuilder: FormBuilder) {
-    this.formGroup = formBuilder.group({ input: '', output: '', auto: false, ignoreWhitespace: false });
+    this.formGroup = formBuilder.group({ input: '', output: '', auto: false, ignoreWhitespace: false, ignoreCase: false });
     this.formGroup.get('input').valueChanges.subscribe(() => this.auto());
     this.formGroup.get('ignoreWhitespace').valueChanges.subscribe(() => this.auto());
+    this.formGroup.get('ignoreCase').valueChanges.subscribe(() => this.auto());
   }
 
   public auto() {
@@ -38,7 +39,7 @@ export class CipherOperatorComponent {
 
   private process() {
     const input: string = this.formGroup.get('input').value;
-    const options = { ignoreWhitespace: this.formGroup.get('ignoreWhitespace').value };
+    const options = { ignoreWhitespace: this.formGroup.get('ignoreWhitespace').value, ignoreCase: this.formGroup.get('ignoreCase').value  };
     const output: string = this.isEncrypt ? this.encrypt(input, options) : this.decrypt(input, options);
     this.formGroup.get('output').setValue(output);
   }

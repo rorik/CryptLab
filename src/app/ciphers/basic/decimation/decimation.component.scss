@@ -1,0 +1,28 @@
+.basic-row {
+    width: 100%;
+    margin-bottom: 1rem;
+    & .left-column {
+        width: 9rem;
+        display: inline-block;
+    }
+    & .right-column {
+        width: calc(100% - 11rem);
+        display: inline-block;
+        margin-left: 2rem;
+    }
+}
+form.slider-row {
+    & > mat-form-field {
+        width: 7rem;
+    }
+    & > mat-icon {
+        width: 1rem;
+        margin-left: 1rem;
+        vertical-align: middle;
+    }
+    & > mat-slider {
+        width: calc(100% - 11rem);
+        display: inline-block;
+        margin-left: 2rem;
+    }
+}

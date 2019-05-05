@@ -8,7 +8,7 @@ import { AlphabetService } from './../../../common/alphabet/alphabet.service';
 })
 export class AlphabetComponent {
 
-  @Input() public shift = 0;
+  @Input() public shiftFunction: (index: number) => number;
 
   constructor(public alphabet: AlphabetService) {}
 

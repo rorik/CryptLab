@@ -50,12 +50,16 @@ export class AlphabetService {
       }
   }
 
-  public shift(char: string, shift: number): string {
+  public shift(char: string, shift: number|((index: number) => number)): string {
     const index = this.alphabet.indexOf(char);
     if (index === -1) {
       throw new TypeError('Char not found, got: [' + char + ']');
     }
-    return this.alphabet[(((index + shift) % this.alphabet.length) + this.alphabet.length) % this.alphabet.length];
+    const target = shift instanceof Function ? shift(index) : index + shift;
+    if (target % 1 !== 0 || Number.isNaN(target) || target == null || target === undefined) {
+      return null;
+    }
+    return this.alphabet[((target % this.alphabet.length) + this.alphabet.length) % this.alphabet.length];
   }
 
   constructor() {

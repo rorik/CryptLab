@@ -30,29 +30,36 @@ export class CaesarComponent {
     this.options.get('shift').valueChanges.subscribe(shift => this.shiftChange.emit(shift));
   }
 
-  public encrypt(plaintext: string, options: {ignoreWhitespace: boolean}) {
+  public shiftCallback = (index: number) => index + this.options.get('shift').value;
+
+  public encrypt(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
     const shift: number = this.options.get('shift').value;
-    return this.process(plaintext, options.ignoreWhitespace, shift);
+    return this.process(plaintext, options, shift);
   }
 
-  public encryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean}) => this.encrypt(plaintext, options);
+  public encryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
+    this.encrypt(plaintext, options)
 
-  public decrypt(plaintext: string, options: {ignoreWhitespace: boolean}) {
+  public decrypt(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
     const shift: number = this.options.get('shift').value;
-    return this.process(plaintext, options.ignoreWhitespace, -shift);
+    return this.process(plaintext, options, -shift);
   }
 
-  public decryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean}) => this.decrypt(plaintext, options);
+  public decryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
+    this.decrypt(plaintext, options)
 
-  private process(plaintext: string, ignoreWhitespace: boolean, shift: number) {
+  private process(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}, shift: number) {
     let cipher = '';
     plaintext.split('').forEach(char => {
       if (char === '\n' || char === ' ') {
-        if (!ignoreWhitespace) {
+        if (!options.ignoreWhitespace) {
           cipher += char;
         }
       } else {
         try {
+          if (options.ignoreCase) {
+            char = char.toLowerCase();
+          }
           cipher += this.alphabet.shift(char, shift);
         } catch (_) {
           cipher += ' ';

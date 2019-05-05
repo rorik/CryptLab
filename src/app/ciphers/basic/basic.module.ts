@@ -7,7 +7,7 @@ import { CaesarComponent } from './caesar/caesar.component';
 import { DecimationComponent } from './decimation/decimation.component';
 import { AffineComponent } from './affine/affine.component';
 import { VigenereComponent } from './vigenere/vigenere.component';
-import { MatSliderModule } from '@angular/material';
+import { MatSliderModule, MatIconModule, MatTooltipModule } from '@angular/material';
 import { TextFieldModule } from '@angular/cdk/text-field';
 
 @NgModule({
@@ -16,6 +16,8 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     CommonModule,
     BasicRoutingModule,
     MatSliderModule,
+    MatIconModule,
+    MatTooltipModule,
     CiphersCommonModule,
     TextFieldModule
   ]
