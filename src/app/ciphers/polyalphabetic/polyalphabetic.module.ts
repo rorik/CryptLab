@@ -6,9 +6,11 @@ import { PolyalphabeticRoutingModule } from './polyalphabetic-routing.module';
 import { VigenereComponent } from './vigenere/vigenere.component';
 import { MatSliderModule, MatIconModule, MatTooltipModule } from '@angular/material';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { BeaufortComponent } from './beaufort/beaufort.component';
+import { BeaufortVariantComponent } from './beaufort-variant/beaufort-variant.component';
 
 @NgModule({
-  declarations: [VigenereComponent],
+  declarations: [VigenereComponent, BeaufortComponent, BeaufortVariantComponent],
   imports: [
     CommonModule,
     PolyalphabeticRoutingModule,

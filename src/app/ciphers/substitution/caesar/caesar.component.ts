@@ -40,17 +40,17 @@ export class CaesarComponent {
   public encryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
     this.encrypt(plaintext, options)
 
-  public decrypt(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
+  public decrypt(cipher: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
     const shift: number = this.options.get('shift').value;
-    return this.process(plaintext, options, -shift);
+    return this.process(cipher, options, -shift);
   }
 
-  public decryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
-    this.decrypt(plaintext, options)
+  public decryptCallback = (cipher: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
+    this.decrypt(cipher, options)
 
-  private process(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}, shift: number) {
+  private process(input: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}, shift: number) {
     let cipher = '';
-    plaintext.split('').forEach(char => {
+    input.split('').forEach(char => {
       if (char === '\n' || char === ' ') {
         if (!options.ignoreWhitespace) {
           cipher += char;

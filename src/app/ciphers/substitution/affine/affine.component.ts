@@ -70,18 +70,18 @@ export class AffineComponent {
   public encryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
     this.encrypt(plaintext, options)
 
-  public decrypt(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
+  public decrypt(cipher: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
     const decimation: number = this.modInverse(this.getDecimation(), this.alphabet.length);
-    return this.process(plaintext, options, decimation, this.getShift(), false);
+    return this.process(cipher, options, decimation, this.getShift(), false);
   }
 
-  public decryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
-    this.decrypt(plaintext, options)
+  public decryptCallback = (cipher: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
+    this.decrypt(cipher, options)
 
-  private process(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean},
+  private process(input: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean},
                   decimation: number, shift: number, isEncrypt: boolean) {
     let cipher = '';
-    plaintext.split('').forEach(char => {
+    input.split('').forEach(char => {
       if (char === '\n' || char === ' ') {
         if (!options.ignoreWhitespace) {
           cipher += char;

@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlphabetService } from 'src/app/common/alphabet/alphabet.service';
 
 @Component({
-  selector: 'app-vigenere',
-  templateUrl: './vigenere.component.html',
-  styleUrls: ['./vigenere.component.scss']
+  selector: 'app-beaufort-variant',
+  templateUrl: './beaufort-variant.component.html',
+  styleUrls: ['./beaufort-variant.component.scss']
 })
-export class VigenereComponent {
+export class BeaufortVariantComponent {
 
   public options: FormGroup;
 
@@ -67,7 +67,7 @@ export class VigenereComponent {
         }
       } else {
         try {
-          cipher += this.alphabet.shift(input[i], keyword[i], isEncrypt);
+          cipher += this.alphabet.shift(input[i], keyword[i], !isEncrypt);
         } catch (_) {
           cipher += ' ';
         }

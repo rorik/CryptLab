@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlphabetService } from 'src/app/common/alphabet/alphabet.service';
 
 @Component({
-  selector: 'app-vigenere',
-  templateUrl: './vigenere.component.html',
-  styleUrls: ['./vigenere.component.scss']
+  selector: 'app-beaufort',
+  templateUrl: './beaufort.component.html',
+  styleUrls: ['./beaufort.component.scss']
 })
-export class VigenereComponent {
+export class BeaufortComponent {
 
   public options: FormGroup;
 
@@ -30,7 +30,7 @@ export class VigenereComponent {
 
   public encrypt(plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
     const key: string = this.getKey();
-    return this.process(plaintext, options, key, true);
+    return this.process(plaintext, options, key);
   }
 
   public encryptCallback = (plaintext: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
@@ -38,13 +38,13 @@ export class VigenereComponent {
 
   public decrypt(cipher: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) {
     const key: string = this.getKey();
-    return this.process(cipher, options, key, false);
+    return this.process(cipher, options, key);
   }
 
   public decryptCallback = (cipher: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}) =>
     this.decrypt(cipher, options)
 
-  private process(input: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}, key: string, isEncrypt: boolean) {
+  private process(input: string, options: {ignoreWhitespace: boolean, ignoreCase: boolean}, key: string) {
     if (!options) {
       options = {ignoreWhitespace: false, ignoreCase: true};
     }
@@ -67,7 +67,7 @@ export class VigenereComponent {
         }
       } else {
         try {
-          cipher += this.alphabet.shift(input[i], keyword[i], isEncrypt);
+          cipher += this.alphabet.shift(keyword[i], input[i], false);
         } catch (_) {
           cipher += ' ';
         }
