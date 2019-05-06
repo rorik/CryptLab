@@ -13,9 +13,10 @@ import {
 /* Components */
 import { AlphabetComponent } from './alphabet/alphabet.component';
 import { CipherOperatorComponent } from './cipher-operator/cipher-operator.component';
+import { EncryptExampleComponent } from './encrypt-example/encrypt-example.component';
 
 @NgModule({
-  declarations: [AlphabetComponent, CipherOperatorComponent],
+  declarations: [AlphabetComponent, CipherOperatorComponent, EncryptExampleComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -37,7 +38,8 @@ import { CipherOperatorComponent } from './cipher-operator/cipher-operator.compo
     MatSlideToggleModule,
     MatButtonModule,
     AlphabetComponent,
-    CipherOperatorComponent
+    CipherOperatorComponent,
+    EncryptExampleComponent
   ]
 })
 export class CiphersCommonModule { }

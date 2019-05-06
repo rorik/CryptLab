@@ -1,6 +1,12 @@
 import { IAlphabet } from './alphabet.service';
 import { Injectable, Input, Output, EventEmitter } from '@angular/core';
 
+export const defaults: AlphabetDictionary = {
+  az26: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+  azd36: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+          '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -50,17 +56,41 @@ export class AlphabetService {
       }
   }
 
-  public shift(char: string, shift: number|((index: number) => number)): string {
+  public shift(char: string, shift: string|number|((index: number, rightShift?: boolean) => number), rightShift = true): string {
     const index = this.alphabet.indexOf(char);
     if (index === -1) {
       throw new TypeError('Char not found, got: [' + char + ']');
     }
-    const target = shift instanceof Function ? shift(index) : index + shift;
+
+    if (typeof shift === 'string') {
+      const shiftChar: string = shift;
+      shift = this.alphabet.indexOf(shiftChar);
+      if (shift === -1) {
+        throw new TypeError('Shift char not found, got: [' + shiftChar + ']');
+      }
+    }
+
+    let target: number;
+    if (shift instanceof Function) {
+      target = shift(index, rightShift);
+    } else {
+      if (rightShift) {
+        target = index + shift;
+      } else {
+        target = index - shift;
+      }
+      target = ((target % this.alphabet.length) + this.alphabet.length) % this.alphabet.length;
+      // console.log((rightShift ? 'Right' : 'Left') + ' shift ' + index + ' (' + this.alphabet[index] +
+      //   ') ^ ' + shift + ' (' + this.alphabet[shift] + ') = ' + target + '(' + this.alphabet[target] + ')');
+    }
+
     if (target % 1 !== 0 || Number.isNaN(target) || target == null || target === undefined) {
       return null;
     }
+
     return this.alphabet[((target % this.alphabet.length) + this.alphabet.length) % this.alphabet.length];
   }
+
 
   constructor() {
     this.alphabet = this.defaults.az26;
@@ -75,9 +105,3 @@ export interface IAlphabet {
 interface AlphabetDictionary {
   [key: string]: string[];
 }
-
-export const defaults: AlphabetDictionary = {
-  az26: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-  azd36: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-          '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-};
