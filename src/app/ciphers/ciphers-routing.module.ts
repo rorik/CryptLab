@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'polyalphabetic',
     loadChildren: './polyalphabetic/polyalphabetic.module#PolyalphabeticModule'
   },
+  {
+    path: 'polygraphic',
+    loadChildren: './polygraphic/polygraphic.module#PolygraphicModule'
+  }
 ];
 
 @NgModule({

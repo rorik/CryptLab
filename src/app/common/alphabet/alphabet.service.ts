@@ -56,6 +56,22 @@ export class AlphabetService {
       }
   }
 
+  public get(element: number|string, coalesce: number = 0): string {
+    if (typeof element === 'string') {
+      const index = this.alphabet.indexOf(element);
+      return index === -1 ? this.alphabet[coalesce] : element;
+    }
+    return this.alphabet[((element % this.alphabet.length) + this.alphabet.length) % this.alphabet.length];
+  }
+
+  public getIndex(element: number|string, coalesce: number = 0): number {
+    if (typeof element === 'string') {
+      const index = this.alphabet.indexOf(element);
+      return index === -1 ? coalesce : index;
+    }
+    return ((element % this.alphabet.length) + this.alphabet.length) % this.alphabet.length;
+  }
+
   public shift(char: string, shift: string|number|((index: number, rightShift?: boolean) => number), rightShift = true): string {
     const index = this.alphabet.indexOf(char);
     if (index === -1) {

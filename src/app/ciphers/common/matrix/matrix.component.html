@@ -1,0 +1,19 @@
+<mat-grid-list [cols]="cols" rowHeight="1.5rem">
+  <ng-container *ngFor="let i of valueRows">
+    <ng-container *ngFor="let j of valueCols">
+      <ng-container *ngIf="j < matrix[i].length; else emptyTemplate">
+        <mat-grid-tile>{{ matrix[i][j].constructor.name === "String" ? alphabet.shift(matrix[i][j], 0) : alphabet.alphabet[matrix[i][j]] }}</mat-grid-tile>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <mat-grid-tile>{{ coalesce >= 0 ? alphabet.alphabet[coalesce] : "" }}</mat-grid-tile>
+      </ng-template>
+    </ng-container>
+    <ng-container *ngIf="i == 0 && longestRowLength > visibleWidth">
+        <mat-grid-tile [rowspan]="visibleHeight">...</mat-grid-tile>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="matrix.length > maxRank">
+      <mat-grid-tile [colspan]="visibleWidth">...</mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
+
