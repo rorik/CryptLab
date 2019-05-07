@@ -8,9 +8,10 @@ import { MatSliderModule, MatIconModule, MatTooltipModule } from '@angular/mater
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { BeaufortComponent } from './beaufort/beaufort.component';
 import { BeaufortVariantComponent } from './beaufort-variant/beaufort-variant.component';
+import { GronsfeldComponent } from './gronsfeld/gronsfeld.component';
 
 @NgModule({
-  declarations: [VigenereComponent, BeaufortComponent, BeaufortVariantComponent],
+  declarations: [VigenereComponent, BeaufortComponent, BeaufortVariantComponent, GronsfeldComponent],
   imports: [
     CommonModule,
     PolyalphabeticRoutingModule,
