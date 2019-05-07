@@ -4,6 +4,7 @@ import { VigenereComponent } from './vigenere/vigenere.component';
 import { BeaufortComponent } from './beaufort/beaufort.component';
 import { BeaufortVariantComponent } from './beaufort-variant/beaufort-variant.component';
 import { GronsfeldComponent } from './gronsfeld/gronsfeld.component';
+import { OneTimePadComponent } from './one-time-pad/one-time-pad.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'gronsfeld',
     component: GronsfeldComponent
+  },
+  {
+    path: 'one-time-pad',
+    component: OneTimePadComponent
   },
 ];
 

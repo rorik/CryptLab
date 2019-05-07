@@ -9,9 +9,10 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { BeaufortComponent } from './beaufort/beaufort.component';
 import { BeaufortVariantComponent } from './beaufort-variant/beaufort-variant.component';
 import { GronsfeldComponent } from './gronsfeld/gronsfeld.component';
+import { OneTimePadComponent } from './one-time-pad/one-time-pad.component';
 
 @NgModule({
-  declarations: [VigenereComponent, BeaufortComponent, BeaufortVariantComponent, GronsfeldComponent],
+  declarations: [VigenereComponent, BeaufortComponent, BeaufortVariantComponent, GronsfeldComponent, OneTimePadComponent],
   imports: [
     CommonModule,
     PolyalphabeticRoutingModule,
