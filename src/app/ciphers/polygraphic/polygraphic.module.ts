@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule, MatTooltipModule } from '@angular/material';
+
+import { CiphersCommonModule } from 'src/app/ciphers/common/ciphers-common.module';
 
 import { PolygraphicRoutingModule } from './polygraphic-routing.module';
 import { HillComponent } from './hill/hill.component';
-import { CiphersCommonModule } from '../common/ciphers-common.module';
 
 @NgModule({
   declarations: [HillComponent],
   imports: [
     CommonModule,
     CiphersCommonModule,
-    PolygraphicRoutingModule
+    PolygraphicRoutingModule,
+    MatIconModule,
+    MatTooltipModule
   ]
 })
 export class PolygraphicModule { }

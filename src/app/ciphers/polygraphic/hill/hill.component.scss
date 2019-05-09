@@ -2,13 +2,16 @@
     width: 100%;
     margin-bottom: 1rem;
     & .left-column {
-        width: 9rem;
+        width: 6rem;
         display: inline-block;
     }
     & .right-column {
-        width: calc(100% - 11rem);
+        width: calc(100% - 8rem);
         display: inline-block;
         margin-left: 2rem;
+    }
+    & .centered {
+        text-align: center;
     }
 }
 .key-container > mat-form-field {

@@ -1,13 +1,13 @@
-import { CiphersCommonModule } from './../common/ciphers-common.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatSliderModule, MatIconModule, MatTooltipModule } from '@angular/material'
+
+import { CiphersCommonModule } from 'src/app/ciphers/common/ciphers-common.module';
 
 import { SubstitutionRoutingModule } from './substitution-routing.module';
 import { CaesarComponent } from './caesar/caesar.component';
 import { DecimationComponent } from './decimation/decimation.component';
 import { AffineComponent } from './affine/affine.component';
-import { MatSliderModule, MatIconModule, MatTooltipModule } from '@angular/material';
-import { TextFieldModule } from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [CaesarComponent, DecimationComponent, AffineComponent],
@@ -17,8 +17,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatSliderModule,
     MatIconModule,
     MatTooltipModule,
-    CiphersCommonModule,
-    TextFieldModule
+    CiphersCommonModule
   ]
 })
 export class SubstitutionModule {}

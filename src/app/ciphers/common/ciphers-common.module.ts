@@ -9,6 +9,7 @@ import {
   MatSlideToggleModule,
   MatButtonModule
 } from '@angular/material';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 /* Components */
 import { AlphabetComponent } from './alphabet/alphabet.component';
@@ -28,6 +29,7 @@ import { MatrixComponent } from './matrix/matrix.component';
     MatFormFieldModule,
     MatButtonModule,
     MatSlideToggleModule,
+    TextFieldModule,
   ],
   exports: [
     FormsModule,
@@ -38,6 +40,7 @@ import { MatrixComponent } from './matrix/matrix.component';
     MatFormFieldModule,
     MatSlideToggleModule,
     MatButtonModule,
+    TextFieldModule,
     AlphabetComponent,
     CipherOperatorComponent,
     EncryptExampleComponent,
