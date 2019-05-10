@@ -1,0 +1,9 @@
+.rorik-image {
+    background-image: url('https://avatars1.githubusercontent.com/u/1517076');
+    background-size: cover;
+}
+a, button {
+    &:not(:last-child) {
+        margin-right: 1rem;
+    }
+}
