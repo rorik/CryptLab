@@ -1,11 +1,11 @@
-<h1 mat-dialog-title>Create new alphabet</h1>
+<h1 mat-dialog-title translate>alphabet.custom.new.title</h1>
 <div mat-dialog-content>
-  <p>Write all the characters of the new alphabet</p>
+  <p translate>alphabet.custom.new.description</p>
   <mat-form-field>
     <input matInput [(ngModel)]="alphabet" (keydown.enter)="alphabet.length > 0 ? ok() : null">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="cancel()" cdkFocusInitial>Cancel</button>
-  <button mat-button (click)="ok()" [disabled]="alphabet.length == 0">Ok</button>
+  <button mat-button (click)="cancel()" cdkFocusInitial>{{ 'common.cancel' | translate }}</button>
+  <button mat-button (click)="ok()" [disabled]="alphabet.length == 0">{{ 'common.ok' | translate }}</button>
 </div>

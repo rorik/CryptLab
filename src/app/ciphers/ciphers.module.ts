@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatGridListModule } from '@angular/material';
 
 import { CiphersRoutingModule } from './ciphers-routing.module';
-import { MatGridListModule } from '@angular/material';
 
 @NgModule({
   imports: [

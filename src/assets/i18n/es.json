@@ -1,0 +1,120 @@
+{
+  "home": {
+    "sidenav": "Inicio"
+  },
+  "about": {
+    "sidenav": "Acerca de",
+    "cryptlab": {
+      "description": "CryptLab fue un trabajo para la asignatura Seguridad Informática de la Universidad de Burgos (UBU)",
+      "ubu": "Página web de la UBU",
+      "ubu.url": "https://www.ubu.es",
+      "sourcecode": "Código fuente de CryptLab"
+    },
+    "rorik": {
+      "description": "Estudiante de ingeniería informática, desarrollador full stack, ingeniería inversa, seguridad de sistemas embebidos, electrónica.",
+      "website": "Página web",
+      "email": "Email"
+    }
+  },
+  "ciphers": {
+    "substitution": {
+      "title": "Cifrados de substitución",
+      "caesar": {
+        "lowercase": "César",
+        "capitalized": "César"
+      },
+      "decimation": {
+        "lowercase": "decimación",
+        "capitalized": "Decimación"
+      },
+      "affine": {
+        "lowercase": "afín",
+        "capitalized": "Afín"
+      }
+    },
+    "polyalphabetic": {
+      "title": "Polialfabético",
+      "vigenere": {
+        "lowercase": "Vigenère",
+        "capitalized": "Vigenère"
+      },
+      "beaufort": {
+        "lowercase": "Beaufort",
+        "capitalized": "Beaufort"
+      },
+      "beaufort-variant": {
+        "lowercase": "variante de Beaufort",
+        "capitalized": "Variante de Beaufort"
+      },
+      "gronsfeld": {
+        "lowercase": "Gronsfeld",
+        "capitalized": "Gronsfeld"
+      },
+      "one-time-pad": {
+        "lowercase": "libreta de un solo uso",
+        "capitalized": "Libreta de un solo uso"
+      }
+    },
+    "polygraphic": {
+      "title": "Poligráfico",
+      "hill": {
+        "lowercase": "Hill",
+        "capitalized": "Hill"
+      }
+    },
+    "common": {
+      "shift": "Desplazamiento",
+      "decimation": "Decimación",
+      "key": "Clave",
+      "plaintext": "Texto plano",
+      "cipher": "Cifrado",
+      "encrypt": "Encriptar",
+      "decrypt": "Desencriptar",
+      "options": {
+        "ignore-case": "Ignorar mayusculas",
+        "ignore-whitespace": "Ignorar espacios",
+        "auto": {
+          "encrypt": "Auto-Encriptar",
+          "decrypt": "Auto-Desencriptar"
+        }
+      },
+      "alphabet": {
+        "title": "Alfabeto:",
+        "substitution": "Alfabeto de sustitución:"
+      },
+      "example": {
+        "title": "Ejemplo:",
+        "encrypted": "Ejemplo encriptado:"
+      },
+      "matrix": {
+        "key": "Matriz clave:"
+      },
+      "tooltips": {
+        "reversible": {
+          "true": "Encriptación reversible",
+          "false": "Encriptación no reversible, la matriz debe ser invertible"
+        },
+        "pure-decimation": {
+          "true": "Decimación pura",
+          "false": "Decimación no pura"
+        }
+      }
+    }
+  },
+  "alphabet": {
+    "standard": "Albafetos ingleses",
+    "spanish": "Albafetos españoles",
+    "custom": {
+      "title": "Albafetos personalizados",
+      "new": {
+        "button": "Nuevo alfabeto",
+        "title": "Crear nuevo alfabeto",
+        "description": "Escriba todos los caracteres del afabeto"
+      }
+    } 
+  },
+  "common": {
+    "ok": "Aceptar",
+    "cancel": "Cancelar"
+  }
+}

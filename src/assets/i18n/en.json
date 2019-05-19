@@ -1,0 +1,120 @@
+{
+  "home": {
+    "sidenav": "Home"
+  },
+  "about": {
+    "sidenav": "About",
+    "cryptlab": {
+      "description": "CryptLab was an assigment for the Information Security class of Burgos University (UBU)",
+      "ubu": "UBU Website",
+      "ubu.url": "https://www.ubu.es/english-version",
+      "sourcecode": "CryptLab Source Code"
+    },
+    "rorik": {
+      "description": "Computer Science major, full stack developer, reverse engineering, embedded systems security, electronics.",
+      "website": "Website",
+      "email": "Email"
+    }
+  },
+  "ciphers": {
+    "substitution": {
+      "title": "Substitution ciphers",
+      "caesar": {
+        "lowercase": "Caesar",
+        "capitalized": "Caesar"
+      },
+      "decimation": {
+        "lowercase": "decimation",
+        "capitalized": "Decimation"
+      },
+      "affine": {
+        "lowercase": "affine",
+        "capitalized": "Affine"
+      }
+    },
+    "polyalphabetic": {
+      "title": "Polyalphabetic ciphers",
+      "vigenere": {
+        "lowercase": "Vigenère",
+        "capitalized": "Vigenère"
+      },
+      "beaufort": {
+        "lowercase": "Beaufort",
+        "capitalized": "Beaufort"
+      },
+      "beaufort-variant": {
+        "lowercase": "variant Beaufort",
+        "capitalized": "Variant Beaufort"
+      },
+      "gronsfeld": {
+        "lowercase": "Gronsfeld",
+        "capitalized": "Gronsfeld"
+      },
+      "one-time-pad": {
+        "lowercase": "one-time pad",
+        "capitalized": "One-time pad"
+      }
+    },
+    "polygraphic": {
+      "title": "Polygraphic ciphers",
+      "hill": {
+        "lowercase": "Hill",
+        "capitalized": "Hill"
+      }
+    },
+    "common": {
+      "shift": "Shift",
+      "decimation": "Decimation",
+      "key": "Key",
+      "plaintext": "Plaintext",
+      "cipher": "Cipher",
+      "encrypt": "Encrypt",
+      "decrypt": "Decrypt",
+      "options": {
+        "ignore-case": "Ignore Case",
+        "ignore-whitespace": "Ignore Whitespace",
+        "auto": {
+          "encrypt": "Auto-Encrypt",
+          "decrypt": "Auto-Decrypt"
+        }
+      },
+      "alphabet": {
+        "title": "Alphabet:",
+        "substitution": "Substitution alphabet:"
+      },
+      "example": {
+        "title": "Example:",
+        "encrypted": "Encrypted example:"
+      },
+      "matrix": {
+        "key": "Key matrix:"
+      },
+      "tooltips": {
+        "reversible": {
+          "true": "Reversible encryption",
+          "false": "Non-reversible encryption, matrix must be invertible"
+        },
+        "pure-decimation": {
+          "true": "Pure decimation",
+          "false": "Non-reversible decimation"
+        }
+      }
+    }
+  },
+  "alphabet": {
+    "standard": "Standard alphabets",
+    "spanish": "Spanish alphabets",
+    "custom": {
+      "title": "Custom alphabets",
+      "new": {
+        "button": "New alphabet",
+        "title": "Create new alphabet",
+        "description": "Write all the characters of the new alphabet"
+      }
+    } 
+  },
+  "common": {
+    "ok": "Ok",
+    "cancel": "Cancel"
+  }
+}

@@ -4,95 +4,95 @@
     <button mat-icon-button>
       <mat-icon [inline]="true">home</mat-icon>
     </button>
-    <span>Home</span>
+    <span translate>home.sidenav</span>
   </mat-list-item>
 
   <mat-list-item routerLink="/docs/about">
     <button mat-icon-button>
       <mat-icon [inline]="true">info</mat-icon>
     </button>
-    <span>About</span>
+    <span translate>about.sidenav</span>
   </mat-list-item>
 
   <mat-expansion-panel>
     <mat-expansion-panel-header class="indicator-margin-override">
-      Substitution ciphers
+      {{ 'ciphers.substitution.title' | translate }}
     </mat-expansion-panel-header>
 
     <mat-list-item routerLink="/ciphers/substitution/caesar">
       <button mat-icon-button>
         <mat-icon [inline]="true">swap_horiz</mat-icon>
       </button>
-      <span>Caesar</span>
+      <span translate>ciphers.substitution.caesar.capitalized</span>
     </mat-list-item>
 
     <mat-list-item routerLink="/ciphers/substitution/decimation">
       <button mat-icon-button>
         <mat-icon [inline]="true">swap_horiz</mat-icon>
       </button>
-      <span>Decimation</span>
+      <span translate>ciphers.substitution.decimation.capitalized</span>
     </mat-list-item>
 
     <mat-list-item routerLink="/ciphers/substitution/affine">
       <button mat-icon-button>
         <mat-icon [inline]="true">swap_horiz</mat-icon>
       </button>
-      <span>Affine</span>
+      <span translate>ciphers.substitution.affine.capitalized</span>
     </mat-list-item>
 
   </mat-expansion-panel>
   
   <mat-expansion-panel>
     <mat-expansion-panel-header class="indicator-margin-override">
-      Polyalphabetic ciphers
+      {{ 'ciphers.polyalphabetic.title' | translate }}
     </mat-expansion-panel-header>
 
     <mat-list-item routerLink="/ciphers/polyalphabetic/vigenere">
       <button mat-icon-button>
         <mat-icon [inline]="true">text_rotation_none</mat-icon>
       </button>
-      <span>Vigenère</span>
+      <span translate>ciphers.polyalphabetic.vigenere.capitalized</span>
     </mat-list-item>
 
     <mat-list-item routerLink="/ciphers/polyalphabetic/beaufort">
       <button mat-icon-button>
         <mat-icon [inline]="true">text_rotation_none</mat-icon>
       </button>
-      <span>Beaufort</span>
+      <span translate>ciphers.polyalphabetic.beaufort.capitalized</span>
     </mat-list-item>
 
     <mat-list-item routerLink="/ciphers/polyalphabetic/beaufort-variant">
       <button mat-icon-button>
         <mat-icon [inline]="true">text_rotation_none</mat-icon>
       </button>
-      <span>Variant Beaufort</span>
+      <span translate>ciphers.polyalphabetic.beaufort-variant.capitalized</span>
     </mat-list-item>
 
     <mat-list-item routerLink="/ciphers/polyalphabetic/gronsfeld">
       <button mat-icon-button>
         <mat-icon [inline]="true">text_rotation_none</mat-icon>
       </button>
-      <span>Gronsfeld</span>
+      <span translate>ciphers.polyalphabetic.gronsfeld.capitalized</span>
     </mat-list-item>
 
     <mat-list-item routerLink="/ciphers/polyalphabetic/one-time-pad">
       <button mat-icon-button>
         <mat-icon [inline]="true">text_rotation_none</mat-icon>
       </button>
-      <span>One-time pad</span>
+      <span translate>ciphers.polyalphabetic.one-time-pad.capitalized</span>
     </mat-list-item>
 
   </mat-expansion-panel>
   <mat-expansion-panel>
     <mat-expansion-panel-header class="indicator-margin-override">
-      Polygraphic ciphers
+      {{ 'ciphers.polygraphic.title' | translate }}
     </mat-expansion-panel-header>
 
     <mat-list-item routerLink="/ciphers/polygraphic/hill">
       <button mat-icon-button>
         <mat-icon [inline]="true">grid_on</mat-icon>
       </button>
-      <span>Hill</span>
+      <span translate>ciphers.polygraphic.hill.capitalized</span>
     </mat-list-item>
   </mat-expansion-panel>
 

@@ -2,7 +2,7 @@
   <mat-card-content>
     <div class="basic-row">
       <div class="left-column">
-        <span>Example:</span>
+        <span translate>ciphers.common.example.title</span>
       </div>
       <div class="right-column">
         <app-encrypt-example></app-encrypt-example>
@@ -10,7 +10,7 @@
     </div>
     <div class="basic-row">
       <div class="left-column">
-        <span>Encrypted example:</span>
+        <span translate>ciphers.common.example.encrypted</span>
       </div>
       <div class="right-column">
         <app-encrypt-example [encryptFunction]="encryptCallback" [keyChangeListener]="keyChange"></app-encrypt-example>
@@ -18,7 +18,7 @@
     </div>
     <form class="key-container" [formGroup]="options">
       <mat-form-field>
-        <mat-label>Key</mat-label>
+        <mat-label translate>ciphers.common.key</mat-label>
         <input matInput type="text" formControlName="key"/>
       </mat-form-field>
     </form>

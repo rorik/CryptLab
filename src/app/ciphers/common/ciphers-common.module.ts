@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   MatGridListModule,
   MatCardModule,
@@ -21,6 +22,7 @@ import { MatrixComponent } from './matrix/matrix.component';
   declarations: [AlphabetComponent, CipherOperatorComponent, EncryptExampleComponent, MatrixComponent],
   imports: [
     FormsModule,
+    TranslateModule,
     ReactiveFormsModule,
     CommonModule,
     MatGridListModule,
@@ -33,6 +35,7 @@ import { MatrixComponent } from './matrix/matrix.component';
   ],
   exports: [
     FormsModule,
+    TranslateModule,
     ReactiveFormsModule,
     MatGridListModule,
     MatCardModule,

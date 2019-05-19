@@ -3,11 +3,11 @@
       <mat-card-title>CryptLab</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>CryptLab was an assigment for the Information Security class of Burgos University (UBU)</p>
+      <p translate>about.cryptlab.description</p>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-flat-button color="primary" href="https://www.ubu.es/" target="_blank">UBU Website</a>
-      <a mat-flat-button color="primary" href="https://github.com/rorik/CryptLab" target="_blank">CryptLab Source Code</a>
+      <a mat-flat-button color="primary" [href]="'about.cryptlab.ubu.url' | translate" target="_blank">{{ 'about.cryptlab.ubu' | translate }}</a>
+      <a mat-flat-button color="primary" href="https://github.com/rorik/CryptLab" target="_blank">{{ 'about.cryptlab.sourcecode' | translate }}</a>
     </mat-card-actions>
 </mat-card>
 <mat-card class="top-margin-override">
@@ -17,11 +17,11 @@
       <mat-card-subtitle>Roderick Diaz</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      Computer Science major, full stack developer, reverse engineering, embedded systems security, electronics.
+      <p translate>about.rorik.description</p>
     </mat-card-content>
     <mat-card-actions>
       <a mat-flat-button color="primary" href="https://github.com/rorik" target="_blank">GitHub</a>
-      <a mat-flat-button color="primary" href="https://rorik.me" target="_blank">Website</a>
-      <a mat-flat-button color="primary" href="mailto:about@rorik.me" target="_self">Email</a>
+      <a mat-flat-button color="primary" href="https://rorik.me" target="_blank">{{ 'about.rorik.website' | translate }}</a>
+      <a mat-flat-button color="primary" href="mailto:about@rorik.me" target="_self">{{ 'about.rorik.email' | translate }}</a>
     </mat-card-actions>
 </mat-card>
