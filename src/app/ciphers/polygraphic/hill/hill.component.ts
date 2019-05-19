@@ -70,7 +70,7 @@ export class HillComponent {
       input = input.substring(0, this.matrix.length);
     } else {
       while (input.length < this.matrix.length) {
-        input += this.alphabet.alphabet[0];
+        input += this.alphabet.get(0);
       }
     }
 

@@ -49,7 +49,7 @@ export class VigenereComponent {
       options = {ignoreWhitespace: false, ignoreCase: true};
     }
     if (key.length === 0) {
-      key = this.alphabet.alphabet[0];
+      key = this.alphabet.get(0);
     }
     if (options.ignoreCase) {
       input = input.toLowerCase();

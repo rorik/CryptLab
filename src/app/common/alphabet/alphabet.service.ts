@@ -2,9 +2,64 @@ import { IAlphabet } from './alphabet.service';
 import { Injectable, Input, Output, EventEmitter } from '@angular/core';
 
 export const defaults: AlphabetDictionary = {
-  az26: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-  azd36: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-          '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+  az26: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+    name: '[a-z]'
+  },
+  AZ26: {alphabet:
+    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    name: '[A-Z]'
+  },
+  azAZ52: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    name: '[a-zA-Z]'
+  },
+  azd36: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    name: '[a-z0-9]'
+  },
+  AZd36: {alphabet:
+    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    name: '[A-Z0-9]'
+  },
+  azAZd62: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    name: '[a-zA-Z0-9]'
+  },
+  azn27: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+    name: '[a-zñ]'
+  },
+  AZN27: {alphabet:
+    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    name: '[A-ZÑ]'
+  },
+  aznAZN54: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+    name: '[a-zñA-ZÑ]'
+  },
+  aznd37: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    name: '[a-zñ0-9]'
+  },
+  AZNd37: {alphabet:
+    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    name: '[A-ZÑ0-9]'
+  },
+  aznAZNd64: {alphabet:
+    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    name: '[a-zñA-ZÑ0-9]'
+  },
 };
 
 @Injectable({
@@ -12,75 +67,66 @@ export const defaults: AlphabetDictionary = {
 })
 export class AlphabetService {
 
-  private alphabetSet: string[];
+  private selectedAlphabet: IAlphabet;
 
-  private alphabetLen: number;
-
-  @Input() public set alphabet(value: string[]) {
-    value.forEach(char => {
+  @Input() public set alphabet(value: string[]|IAlphabet) {
+    const previous = this.selectedAlphabet;
+    if (!(value instanceof Array)) {
+      this.selectedAlphabet = {alphabet: value.alphabet, length: value.alphabet.length, name: value.name};
+    } else {
+      this.selectedAlphabet = {alphabet: value, length: value.length};
+    }
+    if (!this.selectedAlphabet.name) {
+      this.selectedAlphabet.name = this.getName(this.selectedAlphabet.alphabet);
+    }
+    this.selectedAlphabet.alphabet.forEach(char => {
       if (char.length !== 1) {
         throw new TypeError('Alphabet elements must be a single character, but got: [' + char + ']');
       }
     });
-    const previous = this.alphabetObject;
-    this.alphabetSet = value;
-    this.alphabetLen = value.length;
-    this.alphabetChange.emit({new: this.alphabetObject, old: previous});
+
+    this.alphabetChange.emit({new: this.selectedAlphabet, old: previous});
   }
 
-  public get alphabet(): string[] {
-    return this.alphabetSet;
+  public get elements(): string[] {
+    return this.selectedAlphabet.alphabet;
   }
 
   public get length(): number {
-    return this.alphabetLen;
+    return this.selectedAlphabet.length;
   }
 
   public get defaults(): AlphabetDictionary {
     return defaults;
   }
 
-  private get alphabetObject(): IAlphabet {
-    return {alphabet: this.alphabet, length: this.length};
-  }
-
   @Output() alphabetChange = new EventEmitter<{new: IAlphabet, old: IAlphabet}>();
-
-  public set(alphabet: string[]|IAlphabet) {
-      if (alphabet instanceof Array) {
-        this.alphabet = alphabet;
-      } else if ('alphabet' in alphabet) {
-        this.alphabet = alphabet.alphabet;
-      } else {
-        throw new TypeError('Expected list of characters or object with alphabet attribute');
-      }
-  }
 
   public get(element: number|string, coalesce: number = 0): string {
     if (typeof element === 'string') {
-      const index = this.alphabet.indexOf(element);
-      return index === -1 ? this.alphabet[coalesce] : element;
+      const index = this.selectedAlphabet.alphabet.indexOf(element);
+      return index === -1 ? this.selectedAlphabet.alphabet[coalesce] : element;
     }
-    return this.alphabet[((element % this.alphabet.length) + this.alphabet.length) % this.alphabet.length];
+    return this.selectedAlphabet.alphabet[this.indexMod(element)];
   }
 
   public getIndex(element: number|string, coalesce: number = 0): number {
     if (typeof element === 'string') {
-      const index = this.alphabet.indexOf(element);
+      const index = this.selectedAlphabet.alphabet.indexOf(element);
       return index === -1 ? coalesce : index;
     }
-    return ((element % this.alphabet.length) + this.alphabet.length) % this.alphabet.length;
+    return this.indexMod(element);
   }
 
   public shift(char: string, shift: string|number|((index: number, rightShift?: boolean) => number), rightShift = true): string {
-    const index = this.alphabet.indexOf(char);
+    const index = this.selectedAlphabet.alphabet.indexOf(char);
     if (index === -1) {
       throw new TypeError('Char not found, got: [' + char + ']');
     }
 
     if (typeof shift === 'string') {
       const shiftChar: string = shift;
-      shift = this.alphabet.indexOf(shiftChar);
+      shift = this.selectedAlphabet.alphabet.indexOf(shiftChar);
       if (shift === -1) {
         throw new TypeError('Shift char not found, got: [' + shiftChar + ']');
       }
@@ -95,16 +141,30 @@ export class AlphabetService {
       } else {
         target = index - shift;
       }
-      target = ((target % this.alphabet.length) + this.alphabet.length) % this.alphabet.length;
-      // console.log((rightShift ? 'Right' : 'Left') + ' shift ' + index + ' (' + this.alphabet[index] +
-      //   ') ^ ' + shift + ' (' + this.alphabet[shift] + ') = ' + target + '(' + this.alphabet[target] + ')');
     }
 
     if (target % 1 !== 0 || Number.isNaN(target) || target == null || target === undefined) {
       return null;
     }
 
-    return this.alphabet[((target % this.alphabet.length) + this.alphabet.length) % this.alphabet.length];
+    return this.selectedAlphabet.alphabet[this.indexMod(target)];
+  }
+
+  private indexMod(index: number) {
+    return ((index % this.length) + this.length) % this.length;
+  }
+
+  private getName(alphabet: string[]) {
+    return `[${alphabet[0]}-${alphabet[alphabet.length - 1]}]`;
+  }
+
+  public toIAlphabet(alphabet: string[], name?: string): IAlphabet {
+    alphabet.forEach(char => {
+      if (char.length !== 1) {
+        throw new TypeError('Alphabet elements must be a single character, but got: [' + char + ']');
+      }
+    });
+    return {alphabet, length: alphabet.length, name: name ? name : this.getName(alphabet)};
   }
 
 
@@ -115,9 +175,10 @@ export class AlphabetService {
 
 export interface IAlphabet {
   alphabet: string[];
-  length: number;
+  length?: number;
+  name?: string;
 }
 
 interface AlphabetDictionary {
-  [key: string]: string[];
+  [key: string]: IAlphabet;
 }

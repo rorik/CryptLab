@@ -21,7 +21,7 @@ export class DecimationComponent {
 
   public get sliderDecimation() {
     const value = this.getDecimation();
-    if (Math.abs(value) > this.alphabet.alphabet.length) {
+    if (Math.abs(value) > this.alphabet.length) {
       return value % this.alphabet.length;
     }
     return value;

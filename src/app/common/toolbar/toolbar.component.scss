@@ -1,3 +1,6 @@
 mat-toolbar {
     height: 3rem;
+    & > span.toolbar-spacer {
+        flex: 1 1 auto;
+    }
 }

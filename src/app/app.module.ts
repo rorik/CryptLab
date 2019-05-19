@@ -11,22 +11,32 @@ import { MatButtonModule,
   MatListModule,
   MatToolbarModule,
   MatExpansionModule,
-  MatSliderModule
+  MatSliderModule,
+  MatMenuModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { ToolbarComponent } from './common/toolbar/toolbar.component';
 import { SidenavComponent } from './common/sidenav/sidenav.component';
+import { AlphabetMenuComponent } from './common/alphabet-menu/alphabet-menu.component';
+import { CustomAlphabetDialogComponent } from './common/alphabet-menu/custom-alphabet-dialog/custom-alphabet-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    SidenavComponent
+    SidenavComponent,
+    AlphabetMenuComponent,
+    CustomAlphabetDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     /* Material */
     MatButtonModule,
     MatIconModule,
@@ -34,7 +44,11 @@ import { SidenavComponent } from './common/sidenav/sidenav.component';
     MatListModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule,
+    MatInputModule,
+    MatDialogModule,
+    MatFormFieldModule
   ],
   exports: [
     /* Material */
@@ -44,8 +58,9 @@ import { SidenavComponent } from './common/sidenav/sidenav.component';
     MatListModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatSliderModule
+    MatSliderModule,
   ],
+  entryComponents: [CustomAlphabetDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

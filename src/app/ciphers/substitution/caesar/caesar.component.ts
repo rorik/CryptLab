@@ -19,7 +19,7 @@ export class CaesarComponent {
 
   public get sliderShift() {
     const value = this.options.get('shift').value;
-    if (Math.abs(value) > this.alphabet.alphabet.length) {
+    if (Math.abs(value) > this.alphabet.length) {
       return value % this.alphabet.length;
     }
     return value;

@@ -1,0 +1,32 @@
+<mat-accordion>
+  <mat-expansion-panel (click)="stopEvent($event)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Standard alphabets
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button mat-menu-item *ngFor="let _alphabet of standard" (click)="changeAlphabet(_alphabet)">{{_alphabet.name}}</button>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (click)="stopEvent($event)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Spanish alphabet
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button mat-menu-item *ngFor="let _alphabet of spanish" (click)="changeAlphabet(_alphabet)">{{_alphabet.name}}</button>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (click)="stopEvent($event)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Custom alphabets
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button mat-menu-item *ngFor="let _alphabet of custom" (click)="changeAlphabet(_alphabet)">{{_alphabet.name}}</button>
+    <button mat-menu-item (click)="createCustom()">
+      <mat-icon>add</mat-icon>
+      New alphabet
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>

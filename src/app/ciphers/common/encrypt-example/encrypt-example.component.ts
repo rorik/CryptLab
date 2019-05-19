@@ -49,7 +49,7 @@ export class EncryptExampleComponent implements OnInit {
 
   ngOnInit() {
     if (!this.plaintextString) {
-      this.plaintext = this.alphabet.alphabet.join('');
+      this.plaintext = this.alphabet.elements.join('');
     }
   }
 
