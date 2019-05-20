@@ -38,7 +38,7 @@ export class HillComponent {
           newMatrix.push(row);
         }
         this.matrix = newMatrix;
-        this.isInvertible = sqrt === 0 ? true : !!this.invertMatrix(this.convertMatrix(this.matrix));
+        this.isInvertible = sqrt === 0 ? true : !!this.invertMatrix(this.convertMatrix(this.matrix), this.alphabet.length);
       }
     });
   }
@@ -81,7 +81,7 @@ export class HillComponent {
     } else {
       keyMatrix = this.convertMatrix(this.matrix);
       if (!isEncrypt) {
-        keyMatrix = this.invertMatrix(keyMatrix);
+        keyMatrix = this.invertMatrix(keyMatrix, this.alphabet.length);
       }
     }
     const resultMatrix = this.multiplyMatrix(inputMatrix, keyMatrix);
@@ -112,86 +112,99 @@ export class HillComponent {
    * Invert a matrix
    * @param matrix the matrix to be inverted, must be a square matrix
    */
-  private invertMatrix(matrix: number[][]): number[][] {
-    if (matrix.length !== matrix[0].length) {
-      return null;
+  private invertMatrix(matrix: number[][], p: number): number[][] {
+    const inverse: number[][] = [];
+    this.rowReductionField(matrix, p).forEach(row => {
+      inverse.push(row.slice(matrix.length));
+    });
+    return inverse;
+  }
+
+  private rowReductionField(matrix: number[][], field: number): number[][] {
+    const augmented: number[][] = [];
+    for (let i = 0; i < matrix.length; i++) {
+      const identityRow = Array(matrix.length).fill(0);
+      identityRow[i] = 1;
+      augmented.push(matrix[i].concat(identityRow));
     }
-
-    // create the identity matrix, and a copy of the original
-
-    const dim = matrix.length;
-    const copy: number[][] = matrix.map(row => row.copyWithin(-1, -1));
-    const identity: number[][] = [];
-
-    for (let i = 0; i < dim; i++) {
-      const row = Array(dim).fill(0);
-      row[i] = 1;
-      identity.push(row);
-    }
-
-    // Perform elementary row operations
-    for (let i = 0; i < dim; i += 1) {
-      // get the element e on the diagonal
-      let e = copy[i][i];
-
-      // if we have a 0 on the diagonal (we'll need to swap with a lower row)
-      if (e === 0) {
-        // look through every row below the i'th row
-        for (let ii = i + 1; ii < dim; ii += 1) {
-          // if the ii'th row has a non-0 in the i'th col
-          if (copy[ii][i] !== 0) {
-            // it would make the diagonal have a non-0 so swap it
-            for (let j = 0; j < dim; j++) {
-              e = copy[i][j]; // temp store i'th row
-              copy[i][j] = copy[ii][j]; // replace i'th row by ii'th
-              copy[ii][j] = e; // repace ii'th by temp
-              e = identity[i][j]; // temp store i'th row
-              identity[i][j] = identity[ii][j]; // replace i'th row by ii'th
-              identity[ii][j] = e; // repace ii'th by temp
-            }
-            // don't bother checking other rows since we've swapped
-            break;
+    for (let i = 0; i < augmented.length; i++) {
+      let ratio = this.modInv(augmented[i][i], field);
+      if (!ratio) {
+        for (let j = i + 1; j < augmented.length; j++) {
+          const otherRatio: number = this.modInv(augmented[j][i], field);
+          if (otherRatio) {
+            const old: number[] = augmented[i];
+            augmented[i] = augmented[j];
+            augmented[j] = old;
+            ratio = otherRatio;
           }
         }
-        // get the new diagonal
-        e = copy[i][i];
-        // if it's still 0, not invertible (error)
-        if (e === 0) {
+        if (!ratio) {
           return null;
         }
       }
-
-      // Scale this row down by e (so we have a 1 on the diagonal)
-      for (let j = 0; j < dim; j++) {
-        copy[i][j] = copy[i][j] / e; // apply to original matrix
-        identity[i][j] = identity[i][j] / e; // apply to identity
+      for (let j = 0; j < augmented[i].length; j++) {
+        augmented[i][j] = (augmented[i][j] * ratio) % field;
       }
-
-      // Subtract this row (scaled appropriately for each row) from ALL of
-      // the other rows so that there will be 0's in this column in the
-      // rows above and below this one
-      for (let ii = 0; ii < dim; ii++) {
-        // Only apply to other rows (we want a 1 on the diagonal)
-        if (ii === i) {
-          continue;
-        }
-
-        // We want to change this element to 0
-        e = copy[ii][i];
-
-        // Subtract (the row above(or below) scaled by e) from (the
-        // current row) but start at the i'th column and assume all the
-        // stuff left of diagonal is 0 (which it should be if we made this
-        // algorithm correctly)
-        for (let j = 0; j < dim; j++) {
-          copy[ii][j] -= e * copy[i][j]; // apply to original matrix
-          identity[ii][j] -= e * identity[i][j]; // apply to identity
+      for (let j = 0; j < augmented.length; j++) {
+        if (j !== i) {
+          for (let k = augmented[j].length - 1; k >= 0; k--) {
+            augmented[j][k] = this.absoluteMod(augmented[i][k] * - augmented[j][i] + augmented[j][k], field);
+          }
         }
       }
     }
+    return augmented;
+  }
 
-    // we've done all operations, C should be the identity
-    // identity matrix should be the inverse:
-    return identity;
+  private absoluteMod(a: number, m: number) {
+    let mod = a % m;
+    if (mod < 0) {
+      mod = (mod + m) % m;
+    }
+    return mod;
+  }
+
+  private modInv(a: number, m: number): number {
+    const gcd = this.egcd(a, m);
+    if (!gcd || gcd[0] !== 1) {
+      return null;
+    }
+    return gcd[1] % m;
+  }
+
+  private egcd(a: number, b: number) {
+    if (a === Infinity || a === -Infinity || b === Infinity || b === -Infinity) {
+      return [Infinity, Infinity, Infinity];
+    }
+    // Checks if a or b are decimals
+    if ((a % 1 !== 0) || (b % 1 !== 0)) {
+      return null;
+    }
+    const signX = (a < 0) ? -1 : 1;
+    const signY = (b < 0) ? -1 : 1;
+    let x = 0;
+    let y = 1;
+    let u = 1;
+    let v = 0;
+    let q: number;
+    let r: number;
+    let m: number;
+    let n: number;
+    a = Math.abs(a);
+    b = Math.abs(b);
+    while (a !== 0) {
+      q = Math.floor(b / a);
+      r = b % a;
+      m = x - u * q;
+      n = y - v * q;
+      b = a;
+      a = r;
+      x = u;
+      y = v;
+      u = m;
+      v = n;
+    }
+    return [b, signX * x, signY * y];
   }
 }
