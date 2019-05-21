@@ -1,6 +1,43 @@
 {
   "home": {
-    "sidenav": "Inicio"
+    "sidenav": "Inicio",
+    "description": "CryptLab es un conjunto de herramientas que facilita el uso de distintos métodos de cifrado.",
+    "common": {
+      "how-to-use": "Cómo se usa"
+    },
+    "nav": {
+      "title": "Menus y navegación",
+      "sidenav": "Selecciona el cifrado que quieras usar el la barra lateral de navigación a la izquierda, que se puede abrir pulsando",
+      "top-left": "en la esquina superior izquierda.",
+      "top-right": "en la esquina superior derecha.",
+      "language": "Se puede cambiar el idioma pulsando",
+      "alphabet": "Se puede cambiar el algabeto usado en los cifrados"
+    },
+    "key": {
+      "title": "Sección de la clave",
+      "introduction": "Cada método de cifrado tiene una sección similar a esta:",
+      "different": "No todos los cifrados tienen entrada igual que esta, algunos usan sliders, matrices, spinners, y más.",
+      "validators": {
+        "1": "Algunos tipos de cifrado tienen un icono que indica si todo está bien",
+        "2": "o si hay algún problema",
+        "3": ". Colocando el ratón sobre estos iconos se proprociona información adicional."
+      }
+    },
+    "operator": {
+      "title": "Sección de operación de cifrado",
+      "introduction": "Tambien tienen estas secciones, que permiten realizar las operaciones de cifrado utilizando la clave seleccionada:",
+      "read-only": "El texto de la izquierda es la entrada y el de la derecha es la sálida en modo solo lectura.",
+      "process": {
+        "1": "Para realizar la correspondiente operación, se debe pulsar el botón",
+        "2": ", o habilitar",
+        "3": ", que procesa autamicamente la entrada según vaya cambiando."
+      },
+      "options": {
+        "1": "Las otras dos opciones son",
+        "2": ", que elimina todos los espacios en blanco cuando se habilita, e",
+        "3": ", que transforma la entrada a minuscula antes de procesarla."
+      }
+    }
   },
   "about": {
     "sidenav": "Acerca de",

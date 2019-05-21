@@ -39,8 +39,17 @@ export class CipherOperatorComponent {
 
   private process() {
     const input: string = this.formGroup.get('input').value;
-    const options = { ignoreWhitespace: this.formGroup.get('ignoreWhitespace').value, ignoreCase: this.formGroup.get('ignoreCase').value  };
-    const output: string = this.isEncrypt ? this.encrypt(input, options) : this.decrypt(input, options);
+    const outputFunction: (input: string, options: any) => string = this.isEncrypt ? this.encrypt : this.decrypt;
+    let output: string;
+    if (outputFunction) {
+      const options = {
+        ignoreWhitespace: this.formGroup.get('ignoreWhitespace').value,
+        ignoreCase: this.formGroup.get('ignoreCase').value
+      };
+      output = outputFunction(input, options);
+    } else {
+      output = input;
+    }
     this.formGroup.get('output').setValue(output);
   }
 }

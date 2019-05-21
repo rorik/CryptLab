@@ -1,11 +1,13 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule, MatButtonModule } from '@angular/material';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatCardModule, MatButtonModule, MatIconModule, MatTooltipModule } from '@angular/material';
 
+import { CiphersCommonModule } from 'src/app/ciphers/common/ciphers-common.module';
 import { DocsRoutingModule } from './docs-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HomeComponent, AboutComponent],
@@ -14,7 +16,10 @@ import { TranslateModule } from '@ngx-translate/core';
     DocsRoutingModule,
     MatCardModule,
     MatButtonModule,
-    TranslateModule
+    MatIconModule,
+    MatTooltipModule,
+    TranslateModule,
+    CiphersCommonModule
   ]
 })
 export class DocsModule { }

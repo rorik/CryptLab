@@ -1,3 +1,107 @@
-<p>
-  home works!
-</p>
+<mat-card class="top-margin-override">
+  <mat-card-header>
+    <mat-card-title>CryptLab</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p translate>home.description</p>
+  </mat-card-content>
+</mat-card>
+<mat-card class="top-margin-override">
+  <mat-card-header>
+    <mat-card-title translate>home.common.how-to-use</mat-card-title>
+    <mat-card-subtitle translate>home.nav.title</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      <span translate>home.nav.sidenav</span>
+      <button class="text-inserted" mat-mini-fab color="primary">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span translate>home.nav.top-left</span>
+    </p>
+
+    <p>
+      <span translate>home.nav.language</span>
+      <button class="text-inserted" mat-mini-fab color="primary">
+        <mat-icon>translate</mat-icon>
+      </button>
+      <span translate>home.nav.top-right</span>
+    </p>
+
+    <p>
+      <span translate>home.nav.alphabet</span>
+      <button class="text-inserted" mat-mini-fab color="primary">
+        <mat-icon>sort_by_alpha</mat-icon>
+      </button>
+      <span translate>home.nav.top-right</span>
+    </p>
+  </mat-card-content>
+</mat-card>
+<mat-card class="top-margin-override">
+  <mat-card-header>
+    <mat-card-title translate>home.common.how-to-use</mat-card-title>
+    <mat-card-subtitle translate>home.key.title</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p translate>home.key.introduction</p>
+    <mat-card class="top-margin-override">
+      <mat-card-content>
+        <div class="basic-row">
+          <div class="left-column">
+            <span translate>ciphers.common.example.title</span>
+          </div>
+          <div class="right-column">
+            <app-alphabet></app-alphabet>
+          </div>
+        </div>
+        <div class="basic-row">
+          <div class="left-column">
+            <span translate>ciphers.common.example.encrypted</span>
+          </div>
+          <div class="right-column">
+            <app-alphabet></app-alphabet>
+          </div>
+        </div>
+        <form class="key-container">
+          <mat-form-field>
+            <mat-label translate>ciphers.common.key</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <p translate>home.key.different</p>
+    <p>
+      <span translate>home.key.validators.1</span>
+      <mat-icon class="text-inserted" [color]="'primary'" [matTooltip]="'ciphers.common.tooltips.pure-decimation.true' | translate">done</mat-icon>
+      <span translate>home.key.validators.2</span>
+      <mat-icon class="text-inserted" [color]="'accent'" [matTooltip]="'ciphers.common.tooltips.pure-decimation.false' | translate">warning</mat-icon>
+      <span translate>home.key.validators.3</span>
+    </p>
+  </mat-card-content>
+</mat-card>
+<mat-card class="top-margin-override">
+  <mat-card-header>
+    <mat-card-title translate>home.common.how-to-use</mat-card-title>
+    <mat-card-subtitle translate>home.operator.title</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p translate>home.operator.introduction</p>
+    <app-cipher-operator [isEncrypt]="true" [encrypt]="encrypt"></app-cipher-operator>
+    <p translate>home.operator.read-only</p>
+    <p>
+      <span translate>home.operator.process.1</span>
+      <button class="text-inserted" mat-flat-button color="primary">{{ 'ciphers.common.encrypt' | translate }}</button>
+      <span translate>home.operator.process.2</span>
+      <mat-slide-toggle class="text-inserted">{{ 'ciphers.common.options.auto.encrypt' | translate }}</mat-slide-toggle>
+      <span translate>home.operator.process.3</span>
+    </p>
+    <p>
+      <span translate>home.operator.options.1</span>
+      <mat-slide-toggle class="text-inserted">{{ 'ciphers.common.options.ignore-whitespace' | translate }}</mat-slide-toggle>
+      <span translate>home.operator.options.2</span>
+      <mat-slide-toggle class="text-inserted">{{ 'ciphers.common.options.ignore-case' | translate }}</mat-slide-toggle>
+      <span translate>home.operator.options.3</span>
+    </p>
+  </mat-card-content>
+</mat-card>

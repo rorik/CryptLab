@@ -1,6 +1,43 @@
 {
   "home": {
-    "sidenav": "Home"
+    "sidenav": "Home",
+    "description": "CryptLab is a set of tools to help you use different types of ciphers.",
+    "common": {
+      "how-to-use": "How to use"
+    },
+    "nav": {
+      "title": "Navigation and menus",
+      "sidenav": "Select the cipher you wish to use on the left navigation bar, which can be opened by pressing",
+      "top-left": "on the top left corner.",
+      "top-right": "on the top right corner.",
+      "language": "Change the language using",
+      "alphabet": "Change the alphabet used by the ciphers using"
+    },
+    "key": {
+      "title": "Key section",
+      "introduction": "Each cipher has a key input section similar to this one:",
+      "different": "Not all ciphers have the same input section, some use sliders, matrices, spinners, and more.",
+      "validators": {
+        "1": "Certain types of ciphers have an icon which indicates if everything is correct",
+        "2": "or if something is wrong",
+        "3": ". Hovering over these icons gives you detailed information about the problem."
+      }
+    },
+    "operator": {
+      "title": "Cipher operation section",
+      "introduction": "Similarly, ciphers have these sections, which allow to perform the cipher operation with the selected key:",
+      "read-only": "The textbox on the left is the input and the one on the right is read-only output.",
+      "process": {
+        "1": "To perform an operation, you must either manually click the",
+        "2": "button, or enable",
+        "3": ", which automatically processes the input as it changes."
+      },
+      "options": {
+        "1": "The two other options are",
+        "2": ", which removes all whitespace when enabled, and",
+        "3": ", which automatically transforms the input into lowercase before processing it."
+      }
+    }
   },
   "about": {
     "sidenav": "About",
