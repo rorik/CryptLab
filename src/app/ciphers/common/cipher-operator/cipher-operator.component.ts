@@ -37,7 +37,7 @@ export class CipherOperatorComponent {
     }
   }
 
-  private process() {
+  public process() {
     const input: string = this.formGroup.get('input').value;
     const outputFunction: (input: string, options: any) => string = this.isEncrypt ? this.encrypt : this.decrypt;
     let output: string;
